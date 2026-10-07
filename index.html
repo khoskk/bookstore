@@ -88,11 +88,11 @@
       <p class="order-summary" id="order-summary"></p>
       <div class="field">
         <label for="first-name">Имя</label>
-        <input type="text" id="first-name" name="firstName" required>
+        <input type="text" id="first-name" name="firstName" pattern="[А-Яа-яЁёA-Za-z]+(-[А-Яа-яЁёA-Za-z]+)?" title="Одно слово, только буквы" required>
       </div>
       <div class="field">
         <label for="last-name">Фамилия</label>
-        <input type="text" id="last-name" name="lastName" required>
+        <input type="text" id="last-name" name="lastName" pattern="[А-Яа-яЁёA-Za-z]+(-[А-Яа-яЁёA-Za-z]+)?" title="Одно слово, только буквы. Двойную фамилию пишите через дефис" required>
       </div>
       <div class="field">
         <label for="address">Адрес доставки</label>
