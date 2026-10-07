@@ -41,12 +41,20 @@
       <section class="catalog" id="catalog">
         <div class="section-head">
           <h2>Каталог</h2>
+          <span class="section-count" id="catalog-count"></span>
         </div>
         <div class="catalog-grid" id="catalog-grid"></div>
       </section>
 
       <aside class="cart" id="cart" aria-labelledby="cart-title">
         <h2 class="cart-title" id="cart-title">Корзина</h2>
+        <p class="cart-empty" id="cart-empty">Корзина пуста</p>
+        <ul class="cart-list" id="cart-list"></ul>
+        <div class="cart-total">
+          <span>Итого</span>
+          <span class="cart-sum" id="cart-sum">0 ₽</span>
+        </div>
+        <button class="btn btn-primary checkout-btn" id="checkout-btn" type="button" disabled>Оформить заказ</button>
       </aside>
     </div>
   </main>
