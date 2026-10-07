@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Литера: книжный магазин. Каталог книг, корзина и оформление заказа.">
+  <title>Литера. Книжный магазин</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-name">Литера</span>
+        <span class="logo-sub">книжный магазин</span>
+      </a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#delivery">Доставка</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="cart-link" href="#cart">Корзина <span class="cart-count" id="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h1>Классика и современная проза</h1>
+      <p class="lead">Выберите книгу, добавьте в корзину и оформите заказ.</p>
+      <ul class="facts">
+        <li>Доставка 2-3 дня</li>
+        <li>Самовывоз бесплатно</li>
+        <li>Оплата при получении</li>
+      </ul>
+    </section>
+
+    <div class="layout">
+      <section class="catalog" id="catalog">
+        <div class="section-head">
+          <h2>Каталог</h2>
+        </div>
+        <div class="catalog-grid" id="catalog-grid"></div>
+      </section>
+
+      <aside class="cart" id="cart" aria-labelledby="cart-title">
+        <h2 class="cart-title" id="cart-title">Корзина</h2>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <p class="footer-logo">Литера</p>
+          <p>Небольшой книжный магазин.</p>
+        </div>
+        <div class="footer-col" id="delivery">
+          <h2 class="footer-title">Доставка</h2>
+          <p>По городу за 2-3 дня.</p>
+          <p>Самовывоз из магазина бесплатно.</p>
+          <p>Оплата при получении.</p>
+        </div>
+        <div class="footer-col" id="contacts">
+          <h2 class="footer-title">Контакты</h2>
+          <p>ул. Книжная, 12</p>
+          <p><a href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+          <p>Ежедневно с 10:00 до 21:00</p>
+        </div>
+      </div>
+      <p class="footer-bottom">Литера, 2026.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
