@@ -15,21 +15,51 @@ function formatPrice(price) {
   return price.toLocaleString('ru-RU') + ' ₽';
 }
 
+function createEl(tag, className, text) {
+  const el = document.createElement(tag);
+  el.className = className;
+  if (text !== undefined) {
+    el.textContent = text;
+  }
+  return el;
+}
+
+function createImage(product, width, height) {
+  const img = document.createElement('img');
+  img.src = product.image;
+  img.alt = 'Обложка: ' + product.title;
+  img.width = width;
+  img.height = height;
+  return img;
+}
+
+function createCartButton(className, action, id, text) {
+  const button = createEl('button', className, text);
+  button.type = 'button';
+  button.dataset.action = action;
+  button.dataset.id = id;
+  return button;
+}
+
 function renderCatalog() {
   products.forEach((product) => {
-    const card = document.createElement('article');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-cover">
-        <img src="${product.image}" alt="Обложка: ${product.title}" width="200" height="300">
-      </div>
-      <div class="card-body">
-        <p class="card-author">${product.author}</p>
-        <h3 class="card-title">${product.title}</h3>
-        <p class="card-price">${formatPrice(product.price)}</p>
-        <button class="btn btn-outline card-btn" type="button" data-id="${product.id}">Добавить в корзину</button>
-      </div>
-    `;
+    const cover = createEl('div', 'card-cover');
+    cover.append(createImage(product, 200, 300));
+
+    const button = createEl('button', 'btn btn-outline card-btn', 'Добавить в корзину');
+    button.type = 'button';
+    button.dataset.id = product.id;
+
+    const body = createEl('div', 'card-body');
+    body.append(
+      createEl('p', 'card-author', product.author),
+      createEl('h3', 'card-title', product.title),
+      createEl('p', 'card-price', formatPrice(product.price)),
+      button
+    );
+
+    const card = createEl('article', 'card');
+    card.append(cover, body);
     catalogGrid.append(card);
   });
 
@@ -37,26 +67,38 @@ function renderCatalog() {
 }
 
 function renderCart() {
-  cartList.innerHTML = '';
+  cartList.textContent = '';
 
   cart.forEach((item) => {
     const product = findProduct(item.id);
-    const li = document.createElement('li');
-    li.className = 'cart-item';
-    li.innerHTML = `
-      <img class="cart-thumb" src="${product.image}" alt="Обложка: ${product.title}" width="44" height="66">
-      <div class="cart-info">
-        <p class="cart-name">${product.title}</p>
-        <p class="cart-price">${formatPrice(product.price)} за шт.</p>
-        <button class="remove-btn" type="button" data-action="remove" data-id="${product.id}">Удалить</button>
-      </div>
-      <div class="cart-controls">
-        <button class="qty-btn" type="button" data-action="minus" data-id="${product.id}" aria-label="Уменьшить количество" ${item.qty === 1 ? 'disabled' : ''}>-</button>
-        <span class="cart-qty">${item.qty}</span>
-        <button class="qty-btn" type="button" data-action="plus" data-id="${product.id}" aria-label="Увеличить количество">+</button>
-        <span class="cart-item-sum">${formatPrice(product.price * item.qty)}</span>
-      </div>
-    `;
+
+    const info = createEl('div', 'cart-info');
+    info.append(
+      createEl('p', 'cart-name', product.title),
+      createEl('p', 'cart-price', formatPrice(product.price) + ' за шт.'),
+      createCartButton('remove-btn', 'remove', product.id, 'Удалить')
+    );
+
+    const minus = createCartButton('qty-btn', 'minus', product.id, '-');
+    minus.title = 'Уменьшить количество';
+    minus.disabled = item.qty === 1;
+
+    const plus = createCartButton('qty-btn', 'plus', product.id, '+');
+    plus.title = 'Увеличить количество';
+
+    const controls = createEl('div', 'cart-controls');
+    controls.append(
+      minus,
+      createEl('span', 'cart-qty', item.qty),
+      plus,
+      createEl('span', 'cart-item-sum', formatPrice(product.price * item.qty))
+    );
+
+    const thumb = createImage(product, 44, 66);
+    thumb.className = 'cart-thumb';
+
+    const li = createEl('li', 'cart-item');
+    li.append(thumb, info, controls);
     cartList.append(li);
   });
 
