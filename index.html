@@ -32,7 +32,6 @@
       <p class="lead">Выберите книгу, добавьте в корзину и оформите заказ.</p>
       <ul class="facts">
         <li>Доставка 2-3 дня</li>
-        <li>Самовывоз бесплатно</li>
         <li>Оплата при получении</li>
       </ul>
     </section>
@@ -46,9 +45,9 @@
         <div class="catalog-grid" id="catalog-grid"></div>
       </section>
 
-      <aside class="cart" id="cart" aria-labelledby="cart-title">
-        <h2 class="cart-title" id="cart-title">Корзина</h2>
-        <p class="order-message" id="order-message" role="status" hidden>Заказ создан!</p>
+      <aside class="cart" id="cart">
+        <h2 class="cart-title">Корзина</h2>
+        <p class="order-message" id="order-message" hidden>Заказ создан!</p>
         <p class="cart-empty" id="cart-empty">Корзина пуста</p>
         <ul class="cart-list" id="cart-list"></ul>
         <div class="cart-total">
@@ -70,7 +69,6 @@
         <div class="footer-col" id="delivery">
           <h2 class="footer-title">Доставка</h2>
           <p>По городу за 2-3 дня.</p>
-          <p>Самовывоз из магазина бесплатно.</p>
           <p>Оплата при получении.</p>
         </div>
         <div class="footer-col" id="contacts">
@@ -84,25 +82,25 @@
     </div>
   </footer>
 
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">
+  <dialog class="order-dialog" id="order-dialog">
     <form class="order-form" id="order-form">
-      <h2 class="order-title" id="order-title">Оформление заказа</h2>
+      <h2 class="order-title">Оформление заказа</h2>
       <p class="order-summary" id="order-summary"></p>
       <div class="field">
         <label for="first-name">Имя</label>
-        <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
+        <input type="text" id="first-name" name="firstName" required>
       </div>
       <div class="field">
         <label for="last-name">Фамилия</label>
-        <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
+        <input type="text" id="last-name" name="lastName" required>
       </div>
       <div class="field">
         <label for="address">Адрес доставки</label>
-        <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира" required>
+        <input type="text" id="address" name="address" placeholder="Улица, дом, квартира" required>
       </div>
       <div class="field">
         <label for="phone">Контактный телефон</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+7 900 123-45-67" pattern="(\+7|8)[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}" title="Например: +7 900 123-45-67 или 89001234567" required>
+        <input type="tel" id="phone" name="phone" placeholder="+7 900 123-45-67" pattern="(\+7|8)[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}" title="Например: +7 900 123-45-67 или 89001234567" required>
       </div>
       <div class="order-actions">
         <button class="btn btn-outline" id="close-btn" type="button">Закрыть</button>

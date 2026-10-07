@@ -543,6 +543,8 @@ button:focus-visible {
 .order-dialog {
   width: calc(100% - 32px);
   max-width: 460px;
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
   padding: 0;
   border: 1px solid var(--text);
   border-radius: 2px;
@@ -610,4 +612,173 @@ button:focus-visible {
   justify-content: flex-end;
   gap: 12px;
   margin-top: 24px;
+}
+
+/* планшет: 768-1023px */
+@media (max-width: 1023px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .logo-name {
+    font-size: 28px;
+  }
+
+  .site-nav ul {
+    gap: 20px;
+  }
+
+  .intro h1 {
+    font-size: 30px;
+  }
+
+  .layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .cart {
+    width: auto;
+    position: static;
+  }
+
+  .cart-list {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .catalog-grid {
+    gap: 36px 20px;
+  }
+}
+
+/* телефон: до 767px */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 10px;
+  }
+
+  .logo-name {
+    font-size: 24px;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .intro {
+    padding: 24px 0 20px;
+  }
+
+  .intro h1 {
+    font-size: 26px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .facts {
+    gap: 4px 20px;
+  }
+
+  .section-head {
+    margin-bottom: 0;
+  }
+
+  .section-head h2 {
+    font-size: 24px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .card {
+    flex-direction: row;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .card-cover {
+    width: 96px;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  .card-price {
+    padding-top: 4px;
+    border-top: 0;
+    font-size: 17px;
+  }
+
+  .card-btn {
+    width: auto;
+    min-height: 44px;
+    align-self: flex-start;
+    font-size: 14px;
+  }
+
+  .cart {
+    padding: 16px;
+  }
+
+  .qty-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .remove-btn {
+    padding: 8px 0;
+  }
+
+  .site-footer {
+    margin-top: 56px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-col {
+    flex: none;
+  }
+
+  .order-form {
+    padding: 20px;
+  }
+
+  .order-title {
+    font-size: 22px;
+  }
+
+  .order-actions {
+    flex-direction: column-reverse;
+  }
+
+  .order-actions .btn {
+    width: 100%;
+    min-height: 44px;
+  }
 }
