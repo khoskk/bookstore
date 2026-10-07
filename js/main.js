@@ -5,6 +5,11 @@ const cartEmpty = document.querySelector('#cart-empty');
 const cartSum = document.querySelector('#cart-sum');
 const cartCount = document.querySelector('#cart-count');
 const checkoutBtn = document.querySelector('#checkout-btn');
+const orderMessage = document.querySelector('#order-message');
+const orderDialog = document.querySelector('#order-dialog');
+const orderForm = document.querySelector('#order-form');
+const orderSummary = document.querySelector('#order-summary');
+const closeBtn = document.querySelector('#close-btn');
 
 function formatPrice(price) {
   return price.toLocaleString('ru-RU') + ' ₽';
@@ -66,6 +71,7 @@ catalogGrid.addEventListener('click', (event) => {
   if (!button) {
     return;
   }
+  orderMessage.hidden = true;
   addToCart(Number(button.dataset.id));
   renderCart();
 });
@@ -86,6 +92,31 @@ cartList.addEventListener('click', (event) => {
     removeFromCart(id);
   }
   renderCart();
+});
+
+checkoutBtn.addEventListener('click', () => {
+  orderSummary.textContent = 'Книг в заказе: ' + getCartCount() + '. Сумма: ' + formatPrice(getCartTotal());
+  orderDialog.showModal();
+});
+
+closeBtn.addEventListener('click', () => {
+  orderDialog.close();
+});
+
+// клик мимо формы, то есть по затемненному фону
+orderDialog.addEventListener('click', (event) => {
+  if (event.target === orderDialog) {
+    orderDialog.close();
+  }
+});
+
+orderForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  clearCart();
+  renderCart();
+  orderForm.reset();
+  orderDialog.close();
+  orderMessage.hidden = false;
 });
 
 renderCatalog();

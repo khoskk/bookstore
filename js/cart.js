@@ -1,4 +1,4 @@
-const storageKey = 'litera-cart';
+const storageKey = 'paragraf-cart';
 
 let cart = loadCart();
 
@@ -42,6 +42,11 @@ function changeQty(id, delta) {
 function removeFromCart(id) {
   cart = cart.filter((item) => item.id !== id);
   saveCart();
+}
+
+function clearCart() {
+  cart = [];
+  localStorage.removeItem(storageKey);
 }
 
 function getCartCount() {

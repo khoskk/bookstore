@@ -334,6 +334,13 @@ button:focus-visible {
   font-size: 24px;
 }
 
+.order-message {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--accent);
+}
+
 .cart-empty {
   margin: 0;
   font-family: var(--serif);
@@ -530,4 +537,77 @@ button:focus-visible {
   padding-top: 16px;
   border-top: 1px solid var(--rule);
   font-size: 13px;
+}
+
+/* окно заказа */
+.order-dialog {
+  width: calc(100% - 32px);
+  max-width: 460px;
+  padding: 0;
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  background-color: var(--bg);
+  color: var(--text);
+  box-shadow: 0 16px 40px rgba(31, 27, 22, 0.25);
+}
+
+.order-dialog::backdrop {
+  background-color: rgba(31, 27, 22, 0.6);
+}
+
+.order-form {
+  padding: 28px;
+}
+
+.order-title {
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--text);
+  font-size: 26px;
+}
+
+.order-summary {
+  margin: 0 0 20px;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background-color: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+}
+
+.field input::placeholder {
+  color: var(--disabled-text);
+}
+
+.field input:focus {
+  border-color: var(--text);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Литера: книжный магазин. Каталог книг, корзина и оформление заказа.">
-  <title>Литера. Книжный магазин</title>
+  <meta name="description" content="Параграф: книжный магазин. Каталог книг, корзина и оформление заказа.">
+  <title>Параграф. Книжный магазин</title>
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,7 +12,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">
-        <span class="logo-name">Литера</span>
+        <span class="logo-name">Параграф</span>
         <span class="logo-sub">книжный магазин</span>
       </a>
       <nav class="site-nav">
@@ -48,6 +48,7 @@
 
       <aside class="cart" id="cart" aria-labelledby="cart-title">
         <h2 class="cart-title" id="cart-title">Корзина</h2>
+        <p class="order-message" id="order-message" role="status" hidden>Заказ создан!</p>
         <p class="cart-empty" id="cart-empty">Корзина пуста</p>
         <ul class="cart-list" id="cart-list"></ul>
         <div class="cart-total">
@@ -63,7 +64,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-col">
-          <p class="footer-logo">Литера</p>
+          <p class="footer-logo">Параграф</p>
           <p>Небольшой книжный магазин.</p>
         </div>
         <div class="footer-col" id="delivery">
@@ -75,13 +76,40 @@
         <div class="footer-col" id="contacts">
           <h2 class="footer-title">Контакты</h2>
           <p>ул. Книжная, 12</p>
-          <p><a href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+          <p><a href="tel:+78121234567">+7 (812) 123-45-67</a></p>
           <p>Ежедневно с 10:00 до 21:00</p>
         </div>
       </div>
-      <p class="footer-bottom">Литера, 2026.</p>
+      <p class="footer-bottom">Параграф, 2026.</p>
     </div>
   </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">
+    <form class="order-form" id="order-form">
+      <h2 class="order-title" id="order-title">Оформление заказа</h2>
+      <p class="order-summary" id="order-summary"></p>
+      <div class="field">
+        <label for="first-name">Имя</label>
+        <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="last-name">Фамилия</label>
+        <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
+      </div>
+      <div class="field">
+        <label for="address">Адрес доставки</label>
+        <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира" required>
+      </div>
+      <div class="field">
+        <label for="phone">Контактный телефон</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+7 900 123-45-67" pattern="(\+7|8)[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}" title="Например: +7 900 123-45-67 или 89001234567" required>
+      </div>
+      <div class="order-actions">
+        <button class="btn btn-outline" id="close-btn" type="button">Закрыть</button>
+        <button class="btn btn-primary" type="submit">Создать заказ</button>
+      </div>
+    </form>
+  </dialog>
 
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
